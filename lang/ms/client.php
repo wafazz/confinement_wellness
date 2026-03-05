@@ -1,0 +1,222 @@
+<?php
+
+return [
+
+    // ── Navbar ──
+    'nav_home' => 'Utama',
+    'nav_services' => 'Perkhidmatan',
+    'nav_about' => 'Tentang Kami',
+    'nav_my_portal' => 'Portal Saya',
+    'nav_client_login' => 'Log Masuk',
+    'nav_book_now' => 'Tempah Sekarang',
+    'nav_dashboard' => 'Papan Pemuka',
+    'nav_my_bookings' => 'Tempahan Saya',
+    'nav_logout' => 'Log Keluar',
+
+    // ── Footer ──
+    'footer_description' => 'Perkhidmatan penjagaan pantang dan kesihatan profesional. Kami membawa terapis pakar ke rumah anda untuk pengalaman pemulihan yang selesa.',
+    'footer_quick_links' => 'Pautan Pantas',
+    'footer_contact' => 'Hubungi',
+    'footer_staff_access' => 'Akses Kakitangan',
+    'footer_staff_login' => 'Log Masuk Kakitangan',
+    'footer_copyright' => '&copy; :year Confinement & Wellness. Hak cipta terpelihara.',
+
+    // ── Landing: Hero ──
+    'hero_title' => 'Penjagaan Pantang<br>Profesional di Rumah Anda',
+    'hero_subtitle' => 'Perkhidmatan penjagaan selepas bersalin dan terapi kesihatan oleh terapis bertauliah. Kami datang ke rumah anda — selesa, mudah, dan dipercayai.',
+    'hero_book_now' => 'Tempah Sekarang',
+    'hero_our_services' => 'Perkhidmatan Kami',
+
+    // ── Landing: Services ──
+    'services_title' => 'Perkhidmatan Kami',
+    'services_subtitle' => 'Penjagaan profesional mengikut keperluan anda',
+    'services_book_this' => 'Tempah Perkhidmatan Ini',
+    'services_coming_soon' => 'Perkhidmatan akan datang. Sila semak semula kemudian.',
+
+    // ── Landing: How It Works ──
+    'how_title' => 'Cara Ia Berfungsi',
+    'how_subtitle' => 'Langkah mudah untuk menempah sesi kesihatan anda',
+    'how_step1_title' => 'Pilih Perkhidmatan',
+    'how_step1_desc' => 'Layari perkhidmatan kami dan pilih pakej penjagaan yang sesuai dengan keperluan anda.',
+    'how_step2_title' => 'Pilih Jadual',
+    'how_step2_desc' => 'Pilih tarikh, masa, dan lokasi pilihan anda. Kami akan datang ke rumah anda.',
+    'how_step3_title' => 'Nikmati Penjagaan',
+    'how_step3_desc' => 'Terapis bertauliah kami tiba di rumah anda. Berehat dan pulih.',
+
+    // ── Landing: About ──
+    'about_title' => 'Tentang Kami',
+    'about_p1' => 'Kami adalah pasukan terapis penjagaan pantang yang bertauliah dan berpengalaman, berdedikasi dalam menyediakan perkhidmatan pemulihan selepas bersalin yang profesional di seluruh Malaysia.',
+    'about_p2' => 'Terapis kami terlatih dalam teknik kesihatan tradisional dan moden, memastikan ibu-ibu menerima penjagaan terbaik semasa tempoh pantang mereka.',
+    'about_certified' => 'Terapis Bertauliah',
+    'about_home_visit' => 'Perkhidmatan Lawatan Rumah',
+    'about_nationwide' => 'Liputan Seluruh Negara',
+    'about_flexible' => 'Jadual Fleksibel',
+    'about_tagline' => 'Menjaga ibu, satu rumah pada satu masa.',
+
+    // ── Landing: Testimonials ──
+    'testimonials_title' => 'Apa Kata Pelanggan Kami',
+    'testimonials_subtitle' => 'Dipercayai oleh ibu-ibu di seluruh Malaysia',
+    'testimonial_1' => '"Terapis sangat profesional dan lembut. Penjagaan pantang terbaik yang pernah saya alami. Sangat disyorkan!"',
+    'testimonial_2' => '"Proses tempahan sangat mudah. Terapis datang tepat pada masanya dan perkhidmatan sangat baik!"',
+    'testimonial_3' => '"Saya menggunakan perkhidmatan ini untuk kesemua 3 tempoh pantang saya. Boleh dipercayai, berpatutan, dan terapis sangat prihatin."',
+
+    // ── Landing: CTA ──
+    'cta_title' => 'Bersedia Untuk Menempah Sesi Anda?',
+    'cta_subtitle' => 'Nikmati penjagaan pantang profesional di rumah anda. Tempah sekarang dan biarkan kami menjaga anda.',
+
+    // ── Booking Form ──
+    'booking_title' => 'Tempah Sesi',
+    'booking_subtitle' => 'Isi butiran di bawah untuk menempah sesi kesihatan anda.',
+    'booking_select_service' => 'Pilih Perkhidmatan',
+    'booking_schedule' => 'Jadual',
+    'booking_preferred_date' => 'Tarikh Pilihan',
+    'booking_preferred_time' => 'Masa Pilihan',
+    'booking_location' => 'Lokasi',
+    'booking_state' => 'Negeri',
+    'booking_select_state' => 'Pilih Negeri',
+    'booking_district' => 'Daerah',
+    'booking_full_address' => 'Alamat Penuh',
+    'booking_address_placeholder' => 'No. rumah/unit, jalan, kawasan',
+    'booking_preferred_therapist' => 'Terapis Pilihan',
+    'booking_optional' => '(Pilihan)',
+    'booking_no_preference' => 'Tiada pilihan — tugaskan mana-mana yang tersedia',
+    'booking_state_hint' => 'Pilih negeri terlebih dahulu untuk melihat terapis yang tersedia di kawasan anda.',
+    'booking_your_details' => 'Butiran Anda',
+    'booking_login_hint' => 'Sudah ada akaun? <a href=":url">Log masuk</a> untuk mengisi butiran secara automatik dan menjejaki tempahan anda.',
+    'booking_full_name' => 'Nama Penuh',
+    'booking_phone' => 'Nombor Telefon',
+    'booking_email' => 'Emel',
+    'booking_notes' => 'Nota Tambahan',
+    'booking_notes_placeholder' => 'Sebarang keperluan khas atau keadaan kesihatan yang perlu kami ketahui...',
+    'booking_submit' => 'Hantar Tempahan',
+    'booking_info_title' => 'Maklumat Tempahan',
+    'booking_info_1' => 'Tiada bayaran pendahuluan diperlukan',
+    'booking_info_2' => 'Pembatalan percuma sebelum pengesahan',
+    'booking_info_3' => 'Terapis bertauliah dan terlatih',
+    'booking_info_4' => 'Lawatan rumah — kami datang ke rumah anda',
+    'booking_info_5' => 'Tempahan disahkan dalam masa 24 jam',
+    'booking_need_help' => 'Perlukan Bantuan?',
+    'booking_district_placeholder' => 'cth. Petaling Jaya',
+    'booking_phone_placeholder' => 'cth. 012-3456789',
+    'booking_email_placeholder' => 'pilihan',
+
+    // ── Booking Confirmation ──
+    'confirm_title_confirmed' => 'Tempahan Disahkan!',
+    'confirm_desc_confirmed' => 'Sesi anda telah disahkan secara automatik dan ditetapkan kepada terapis.',
+    'confirm_title_received' => 'Tempahan Diterima!',
+    'confirm_desc_received' => 'Tempahan anda sedang disemak. Kami akan mengesahkannya dalam masa 24 jam.',
+    'confirm_booking_code' => 'Kod Tempahan',
+    'confirm_service' => 'Perkhidmatan',
+    'confirm_date' => 'Tarikh',
+    'confirm_time' => 'Masa',
+    'confirm_location' => 'Lokasi',
+    'confirm_status' => 'Status',
+    'confirm_back_home' => 'Kembali ke Utama',
+    'confirm_my_bookings' => 'Tempahan Saya',
+    'confirm_create_account' => 'Cipta Akaun untuk Menjejak',
+
+    // ── Client Login ──
+    'login_title' => 'Log Masuk Pelanggan',
+    'login_subtitle' => 'Akses portal tempahan anda',
+    'login_email' => 'Emel',
+    'login_password' => 'Kata Laluan',
+    'login_remember' => 'Ingat saya',
+    'login_submit' => 'Log Masuk',
+    'login_no_account' => 'Belum ada akaun?',
+    'login_register_link' => 'Daftar di sini',
+
+    // ── Client Register ──
+    'register_title' => 'Cipta Akaun Pelanggan',
+    'register_subtitle' => 'Daftar untuk menjejaki tempahan dan mengurus temu janji anda',
+    'register_name' => 'Nama Penuh',
+    'register_phone' => 'Telefon',
+    'register_email' => 'Emel',
+    'register_password' => 'Kata Laluan',
+    'register_confirm_password' => 'Sahkan Kata Laluan',
+    'register_state' => 'Negeri',
+    'register_select_state' => 'Pilih Negeri',
+    'register_district' => 'Daerah',
+    'register_address' => 'Alamat',
+    'register_submit' => 'Cipta Akaun',
+    'register_has_account' => 'Sudah ada akaun?',
+    'register_login_link' => 'Log masuk di sini',
+    'register_phone_placeholder' => 'cth. 012-3456789',
+
+    // ── Client Dashboard ──
+    'dashboard_welcome' => 'Selamat kembali, :name!',
+    'dashboard_subtitle' => 'Berikut adalah gambaran keseluruhan tempahan dan perkhidmatan anda.',
+    'dashboard_total_bookings' => 'Jumlah Tempahan',
+    'dashboard_pending_review' => 'Menunggu Semakan',
+    'dashboard_active_jobs' => 'Tugasan Aktif',
+    'dashboard_completed' => 'Selesai',
+    'dashboard_active_jobs_title' => 'Tugasan Aktif',
+    'dashboard_no_active_jobs' => 'Tiada tugasan aktif buat masa ini.',
+    'dashboard_recent_bookings' => 'Tempahan Terkini',
+    'dashboard_view_all' => 'Lihat Semua',
+    'dashboard_no_bookings' => 'Belum ada tempahan.',
+    'dashboard_book_now' => 'Tempah sekarang!',
+
+    // ── Client Bookings Index ──
+    'bookings_title' => 'Tempahan Saya',
+    'bookings_subtitle' => 'Jejak semua permintaan tempahan anda',
+    'bookings_new' => 'Tempahan Baru',
+    'bookings_empty_title' => 'Belum ada tempahan',
+    'bookings_empty_desc' => 'Tempah sesi kesihatan pertama anda hari ini!',
+
+    // ── Client Bookings Show ──
+    'show_back' => 'Kembali ke Tempahan',
+    'show_booking_details' => 'Butiran Tempahan',
+    'show_date' => 'Tarikh',
+    'show_time' => 'Masa',
+    'show_location' => 'Lokasi',
+    'show_address' => 'Alamat',
+    'show_preferred_therapist' => 'Terapis Pilihan',
+    'show_notes' => 'Nota',
+    'show_submitted' => 'Dihantar',
+    'show_source' => 'Sumber',
+    'show_assigned_job' => 'Tugasan Ditetapkan',
+    'show_job_code' => 'Kod Tugasan',
+    'show_status' => 'Status',
+    'show_job_date' => 'Tarikh',
+    'show_therapist' => 'Terapis',
+    'show_no_job' => 'Tiada tugasan ditetapkan lagi. Tempahan ini masih dalam proses.',
+    'show_rejected' => 'Tempahan ini telah ditolak.',
+    'show_rejected_reason' => 'Sebab:',
+
+    // ── Timeline Steps ──
+    'timeline_submitted' => 'Dihantar',
+    'timeline_approved' => 'Diluluskan',
+    'timeline_job_created' => 'Tugasan Dicipta',
+
+    // ── Booking Status ──
+    'status_pending_review' => 'Menunggu Semakan',
+    'status_approved' => 'Diluluskan',
+    'status_converted' => 'Ditukar',
+    'status_rejected' => 'Ditolak',
+
+    // ── Job Status ──
+    'job_status_pending' => 'Menunggu',
+    'job_status_accepted' => 'Diterima',
+    'job_status_checked_in' => 'Telah Daftar Masuk',
+    'job_status_completed' => 'Selesai',
+    'job_status_cancelled' => 'Dibatalkan',
+
+    // ── Ulasan ──
+    'nav_my_reviews' => 'Ulasan Saya',
+    'reviews_title' => 'Ulasan Saya',
+    'reviews_subtitle' => 'Maklum balas anda terhadap perkhidmatan yang telah selesai',
+    'review_write' => 'Tulis Ulasan',
+    'review_rating' => 'Penilaian',
+    'review_comment' => 'Komen',
+    'review_comment_placeholder' => 'Kongsi pengalaman anda dengan perkhidmatan ini...',
+    'review_submit' => 'Hantar Ulasan',
+    'review_pending' => 'Menunggu',
+    'review_approved' => 'Diluluskan',
+    'review_rejected' => 'Ditolak',
+    'review_success' => 'Terima kasih! Ulasan anda telah dihantar dan sedang menunggu kelulusan.',
+    'review_already_submitted' => 'Anda telah menghantar ulasan untuk tugasan ini.',
+    'review_job_not_completed' => 'Anda hanya boleh mengulas tugasan yang telah selesai.',
+    'review_no_reviews' => 'Belum ada ulasan. Selesaikan perkhidmatan untuk memberi ulasan!',
+    'review_your_review' => 'Ulasan Anda',
+
+];

@@ -1,0 +1,51 @@
+{
+    "name": "Confinement & Wellness",
+    "short_name": "C&W",
+    "description": "Professional confinement care and wellness services",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#c8956c",
+    "background_color": "#faf6f2",
+    "icons": [
+        {
+            "src": "/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-maskable-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/icon-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/icons/screenshot-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Confinement & Wellness — Home"
+        },
+        {
+            "src": "/icons/screenshot-mobile.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "label": "Confinement & Wellness — Mobile"
+        }
+    ]
+}

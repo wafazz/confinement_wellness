@@ -1,0 +1,222 @@
+<?php
+
+return [
+
+    // ── Navbar ──
+    'nav_home' => 'Home',
+    'nav_services' => 'Services',
+    'nav_about' => 'About',
+    'nav_my_portal' => 'My Portal',
+    'nav_client_login' => 'Client Login',
+    'nav_book_now' => 'Book Now',
+    'nav_dashboard' => 'Dashboard',
+    'nav_my_bookings' => 'My Bookings',
+    'nav_logout' => 'Logout',
+
+    // ── Footer ──
+    'footer_description' => 'Professional confinement care and wellness services. We bring expert therapists to your doorstep for a comfortable recovery experience.',
+    'footer_quick_links' => 'Quick Links',
+    'footer_contact' => 'Contact',
+    'footer_staff_access' => 'Staff Access',
+    'footer_staff_login' => 'Staff Login',
+    'footer_copyright' => '&copy; :year Confinement & Wellness. All rights reserved.',
+
+    // ── Landing: Hero ──
+    'hero_title' => 'Professional Confinement<br>Care at Your Doorstep',
+    'hero_subtitle' => 'Expert post-natal care and wellness therapy services delivered by certified therapists. We come to you — comfortable, convenient, and trusted.',
+    'hero_book_now' => 'Book Now',
+    'hero_our_services' => 'Our Services',
+
+    // ── Landing: Services ──
+    'services_title' => 'Our Services',
+    'services_subtitle' => 'Professional care tailored to your needs',
+    'services_book_this' => 'Book This Service',
+    'services_coming_soon' => 'Services coming soon. Please check back later.',
+
+    // ── Landing: How It Works ──
+    'how_title' => 'How It Works',
+    'how_subtitle' => 'Simple steps to book your wellness session',
+    'how_step1_title' => 'Choose Your Service',
+    'how_step1_desc' => 'Browse our services and select the care package that suits your needs.',
+    'how_step2_title' => 'Pick Your Schedule',
+    'how_step2_desc' => 'Select your preferred date, time, and location. We\'ll come to you.',
+    'how_step3_title' => 'Enjoy the Care',
+    'how_step3_desc' => 'Our certified therapist arrives at your doorstep. Relax and recover.',
+
+    // ── Landing: About ──
+    'about_title' => 'About Us',
+    'about_p1' => 'We are a team of certified and experienced confinement care therapists dedicated to providing professional post-natal recovery services across Malaysia.',
+    'about_p2' => 'Our therapists are trained in traditional and modern wellness techniques, ensuring mothers receive the best care during their confinement period.',
+    'about_certified' => 'Certified Therapists',
+    'about_home_visit' => 'Home Visit Service',
+    'about_nationwide' => 'Nationwide Coverage',
+    'about_flexible' => 'Flexible Scheduling',
+    'about_tagline' => 'Caring for mothers, one home at a time.',
+
+    // ── Landing: Testimonials ──
+    'testimonials_title' => 'What Our Clients Say',
+    'testimonials_subtitle' => 'Trusted by mothers across Malaysia',
+    'testimonial_1' => '"The therapist was very professional and gentle. Best confinement care I\'ve experienced. Highly recommend!"',
+    'testimonial_2' => '"Very convenient booking process. The therapist came right on time and the service was excellent!"',
+    'testimonial_3' => '"I used this service for all 3 of my confinement periods. Reliable, affordable, and the therapists really care."',
+
+    // ── Landing: CTA ──
+    'cta_title' => 'Ready to Book Your Session?',
+    'cta_subtitle' => 'Experience professional confinement care at your home. Book now and let us take care of you.',
+
+    // ── Booking Form ──
+    'booking_title' => 'Book a Session',
+    'booking_subtitle' => 'Fill in the details below to book your wellness session.',
+    'booking_select_service' => 'Select Service',
+    'booking_schedule' => 'Schedule',
+    'booking_preferred_date' => 'Preferred Date',
+    'booking_preferred_time' => 'Preferred Time',
+    'booking_location' => 'Location',
+    'booking_state' => 'State',
+    'booking_select_state' => 'Select State',
+    'booking_district' => 'District',
+    'booking_full_address' => 'Full Address',
+    'booking_address_placeholder' => 'House/unit number, street, area',
+    'booking_preferred_therapist' => 'Preferred Therapist',
+    'booking_optional' => '(Optional)',
+    'booking_no_preference' => 'No preference — assign any available',
+    'booking_state_hint' => 'Select a state first to see available therapists in your area.',
+    'booking_your_details' => 'Your Details',
+    'booking_login_hint' => 'Already have an account? <a href=":url">Login</a> to auto-fill your details and track your bookings.',
+    'booking_full_name' => 'Full Name',
+    'booking_phone' => 'Phone Number',
+    'booking_email' => 'Email',
+    'booking_notes' => 'Additional Notes',
+    'booking_notes_placeholder' => 'Any special requirements or health conditions we should know about...',
+    'booking_submit' => 'Submit Booking',
+    'booking_info_title' => 'Booking Info',
+    'booking_info_1' => 'No upfront payment required',
+    'booking_info_2' => 'Free cancellation before confirmation',
+    'booking_info_3' => 'Certified and trained therapists',
+    'booking_info_4' => 'Home visit — we come to you',
+    'booking_info_5' => 'Bookings are confirmed within 24 hours',
+    'booking_need_help' => 'Need Help?',
+    'booking_district_placeholder' => 'e.g. Petaling Jaya',
+    'booking_phone_placeholder' => 'e.g. 012-3456789',
+    'booking_email_placeholder' => 'optional',
+
+    // ── Booking Confirmation ──
+    'confirm_title_confirmed' => 'Booking Confirmed!',
+    'confirm_desc_confirmed' => 'Your session has been automatically confirmed and assigned to a therapist.',
+    'confirm_title_received' => 'Booking Received!',
+    'confirm_desc_received' => 'Your booking is under review. We\'ll confirm it within 24 hours.',
+    'confirm_booking_code' => 'Booking Code',
+    'confirm_service' => 'Service',
+    'confirm_date' => 'Date',
+    'confirm_time' => 'Time',
+    'confirm_location' => 'Location',
+    'confirm_status' => 'Status',
+    'confirm_back_home' => 'Back to Home',
+    'confirm_my_bookings' => 'My Bookings',
+    'confirm_create_account' => 'Create Account to Track',
+
+    // ── Client Login ──
+    'login_title' => 'Client Login',
+    'login_subtitle' => 'Access your booking portal',
+    'login_email' => 'Email',
+    'login_password' => 'Password',
+    'login_remember' => 'Remember me',
+    'login_submit' => 'Login',
+    'login_no_account' => 'Don\'t have an account?',
+    'login_register_link' => 'Register here',
+
+    // ── Client Register ──
+    'register_title' => 'Create Client Account',
+    'register_subtitle' => 'Register to track your bookings and manage appointments',
+    'register_name' => 'Full Name',
+    'register_phone' => 'Phone',
+    'register_email' => 'Email',
+    'register_password' => 'Password',
+    'register_confirm_password' => 'Confirm Password',
+    'register_state' => 'State',
+    'register_select_state' => 'Select State',
+    'register_district' => 'District',
+    'register_address' => 'Address',
+    'register_submit' => 'Create Account',
+    'register_has_account' => 'Already have an account?',
+    'register_login_link' => 'Login here',
+    'register_phone_placeholder' => 'e.g. 012-3456789',
+
+    // ── Client Dashboard ──
+    'dashboard_welcome' => 'Welcome back, :name!',
+    'dashboard_subtitle' => 'Here\'s an overview of your bookings and services.',
+    'dashboard_total_bookings' => 'Total Bookings',
+    'dashboard_pending_review' => 'Pending Review',
+    'dashboard_active_jobs' => 'Active Jobs',
+    'dashboard_completed' => 'Completed',
+    'dashboard_active_jobs_title' => 'Active Jobs',
+    'dashboard_no_active_jobs' => 'No active jobs at the moment.',
+    'dashboard_recent_bookings' => 'Recent Bookings',
+    'dashboard_view_all' => 'View All',
+    'dashboard_no_bookings' => 'No bookings yet.',
+    'dashboard_book_now' => 'Book now!',
+
+    // ── Client Bookings Index ──
+    'bookings_title' => 'My Bookings',
+    'bookings_subtitle' => 'Track all your booking requests',
+    'bookings_new' => 'New Booking',
+    'bookings_empty_title' => 'No bookings yet',
+    'bookings_empty_desc' => 'Book your first wellness session today!',
+
+    // ── Client Bookings Show ──
+    'show_back' => 'Back to Bookings',
+    'show_booking_details' => 'Booking Details',
+    'show_date' => 'Date',
+    'show_time' => 'Time',
+    'show_location' => 'Location',
+    'show_address' => 'Address',
+    'show_preferred_therapist' => 'Preferred Therapist',
+    'show_notes' => 'Notes',
+    'show_submitted' => 'Submitted',
+    'show_source' => 'Source',
+    'show_assigned_job' => 'Assigned Job',
+    'show_job_code' => 'Job Code',
+    'show_status' => 'Status',
+    'show_job_date' => 'Date',
+    'show_therapist' => 'Therapist',
+    'show_no_job' => 'No job assigned yet. This booking is still being processed.',
+    'show_rejected' => 'This booking was rejected.',
+    'show_rejected_reason' => 'Reason:',
+
+    // ── Timeline Steps ──
+    'timeline_submitted' => 'Submitted',
+    'timeline_approved' => 'Approved',
+    'timeline_job_created' => 'Job Created',
+
+    // ── Booking Status ──
+    'status_pending_review' => 'Pending Review',
+    'status_approved' => 'Approved',
+    'status_converted' => 'Converted',
+    'status_rejected' => 'Rejected',
+
+    // ── Job Status ──
+    'job_status_pending' => 'Pending',
+    'job_status_accepted' => 'Accepted',
+    'job_status_checked_in' => 'Checked In',
+    'job_status_completed' => 'Completed',
+    'job_status_cancelled' => 'Cancelled',
+
+    // ── Reviews ──
+    'nav_my_reviews' => 'My Reviews',
+    'reviews_title' => 'My Reviews',
+    'reviews_subtitle' => 'Your feedback on completed services',
+    'review_write' => 'Write a Review',
+    'review_rating' => 'Rating',
+    'review_comment' => 'Comment',
+    'review_comment_placeholder' => 'Share your experience with this service...',
+    'review_submit' => 'Submit Review',
+    'review_pending' => 'Pending',
+    'review_approved' => 'Approved',
+    'review_rejected' => 'Rejected',
+    'review_success' => 'Thank you! Your review has been submitted and is pending approval.',
+    'review_already_submitted' => 'You have already submitted a review for this job.',
+    'review_job_not_completed' => 'You can only review completed jobs.',
+    'review_no_reviews' => 'No reviews yet. Complete a service to leave a review!',
+    'review_your_review' => 'Your Review',
+
+];
