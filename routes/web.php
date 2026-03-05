@@ -34,6 +34,7 @@ use App\Http\Controllers\Client\DashboardController as ClientDashboardController
 use App\Http\Controllers\Client\BookingController as ClientBookingController;
 use App\Http\Controllers\Client\ReviewController as ClientReviewController;
 use App\Http\Controllers\HQ\ReviewController as HQReviewController;
+use App\Http\Controllers\HQ\ReportController;
 use Illuminate\Support\Facades\Route;
 
 // ── Locale Switch ──
@@ -153,6 +154,13 @@ Route::middleware(['auth', 'role:hq|staff'])->prefix('hq')->name('hq.')->group(f
         Route::patch('/bookings/{booking}/reject', [HQBookingController::class, 'reject'])->name('bookings.reject');
         Route::get('/bookings/{booking}/convert', [HQBookingController::class, 'convertForm'])->name('bookings.convert-form');
         Route::post('/bookings/{booking}/convert', [HQBookingController::class, 'convert'])->name('bookings.convert');
+    });
+
+    // Reports
+    Route::middleware('permission:access-reports')->group(function () {
+        Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+        Route::get('/reports/download-pdf', [ReportController::class, 'downloadPdf'])->name('reports.download-pdf');
+        Route::get('/reports/download-csv', [ReportController::class, 'downloadCsv'])->name('reports.download-csv');
     });
 
     // Staff Management

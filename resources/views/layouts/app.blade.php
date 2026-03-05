@@ -258,6 +258,9 @@
                 @can('access-reward-tiers')
                 <a href="{{ route('hq.reward-tiers.index') }}" class="nav-link {{ request()->routeIs('hq.reward-tiers.*') ? 'active' : '' }}"><i class="fas fa-trophy"></i> Reward Tiers</a>
                 @endcan
+                @can('access-reports')
+                <a href="{{ route('hq.reports.index') }}" class="nav-link {{ request()->routeIs('hq.reports.*') ? 'active' : '' }}"><i class="fas fa-chart-bar"></i> Reports</a>
+                @endcan
                 <div class="sidebar-section">Resources</div>
                 @can('access-sop-materials')
                 <a href="{{ route('hq.sop-materials.index') }}" class="nav-link {{ request()->routeIs('hq.sop-materials.*') ? 'active' : '' }}"><i class="fas fa-book"></i> SOP Materials</a>

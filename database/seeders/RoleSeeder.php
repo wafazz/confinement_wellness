@@ -22,6 +22,7 @@ class RoleSeeder extends Seeder
             'access-sop-materials',
             'access-reviews',
             'access-staff',
+            'access-reports',
         ];
 
         foreach ($permissions as $perm) {
