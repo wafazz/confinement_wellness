@@ -170,7 +170,7 @@ Route::middleware(['auth', 'role:hq|staff'])->prefix('hq')->name('hq.')->group(f
 // Leader Routes
 Route::middleware(['auth', 'role:leader'])->prefix('leader')->name('leader.')->group(function () {
     Route::get('/dashboard', [LeaderDashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/therapists', TherapistController::class)->only(['index', 'show']);
+    Route::resource('/therapists', TherapistController::class)->only(['index', 'create', 'store', 'show']);
     Route::patch('/therapists/{therapist}/toggle-status', [TherapistController::class, 'toggleStatus'])->name('therapists.toggle-status');
     Route::resource('/jobs', LeaderServiceJobController::class)->except(['destroy']);
     Route::patch('/jobs/{job}/cancel', [LeaderServiceJobController::class, 'cancel'])->name('jobs.cancel');

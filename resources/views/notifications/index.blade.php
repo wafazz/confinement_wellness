@@ -28,6 +28,7 @@
     }
     .notif-icon.job { background: #dbeafe; color: #2563eb; }
     .notif-icon.commission { background: #dcfce7; color: #16a34a; }
+    .notif-icon.therapist { background: #fef3c7; color: #d97706; }
     .notif-icon.default { background: #f1f5f9; color: #64748b; }
 </style>
 @endpush
@@ -63,6 +64,7 @@
                     'job_assigned' => 'job',
                     'job_completed' => 'job',
                     'commission_approved', 'commission_paid' => 'commission',
+                    'therapist_registered' => 'therapist',
                     default => 'default',
                 };
                 $icon = match($type) {
@@ -70,6 +72,7 @@
                     'job_completed' => 'fa-check-circle',
                     'commission_approved' => 'fa-check',
                     'commission_paid' => 'fa-money-bill-wave',
+                    'therapist_registered' => 'fa-user-plus',
                     default => 'fa-bell',
                 };
             @endphp

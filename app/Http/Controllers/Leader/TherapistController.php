@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Leader;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\TherapistRegistered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Yajra\DataTables\Facades\DataTables;
 
 class TherapistController extends Controller
@@ -46,6 +48,42 @@ class TherapistController extends Controller
         }
 
         return view('leader.therapists.index');
+    }
+
+    public function create()
+    {
+        return view('leader.therapists.create');
+    }
+
+    public function store(Request $request)
+    {
+        $leader = Auth::user();
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|string|max:20',
+            'ic_number' => 'required|string|max:20|unique:users,ic_number',
+            'password' => 'required|string|min:8|confirmed',
+            'district' => 'required|string|max:100',
+            'kkm_cert_no' => 'nullable|string|max:50',
+            'bank_name' => 'nullable|string|max:100',
+            'bank_account' => 'nullable|string|max:50',
+        ]);
+
+        $validated['password'] = bcrypt($validated['password']);
+        $validated['role'] = 'therapist';
+        $validated['status'] = 'pending';
+        $validated['leader_id'] = $leader->id;
+        $validated['state'] = $leader->state;
+
+        $therapist = User::create($validated);
+        $therapist->assignRole('therapist');
+
+        $hqAdmins = User::where('role', 'hq')->get();
+        Notification::send($hqAdmins, new TherapistRegistered($therapist, $leader));
+
+        return redirect()->route('leader.therapists.index')->with('success', 'Therapist registered successfully. Pending HQ approval.');
     }
 
     public function show(User $therapist)

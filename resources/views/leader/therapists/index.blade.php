@@ -11,6 +11,9 @@
 <div class="card border-0 shadow-sm">
     <div class="card-header bg-white d-flex justify-content-between align-items-center">
         <h5 class="mb-0"><i class="fas fa-users me-2"></i>My Therapists</h5>
+        <a href="{{ route('leader.therapists.create') }}" class="btn btn-sm" style="background: linear-gradient(135deg, #c8956c, #b07d58); color: #fff;">
+            <i class="fas fa-user-plus me-1"></i> Register Therapist
+        </a>
     </div>
     <div class="card-body">
         <table class="table table-hover" id="therapists-table" style="width:100%">
