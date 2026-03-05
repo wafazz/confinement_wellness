@@ -46,7 +46,12 @@
 </div>
 
 <hr class="my-4">
-<h6 class="mb-3"><i class="fas fa-key me-2"></i>Module Permissions <span class="text-danger">*</span></h6>
+<div class="d-flex align-items-center mb-3">
+    <h6 class="mb-0"><i class="fas fa-key me-2"></i>Module Permissions <span class="text-danger">*</span></h6>
+    <button type="button" class="btn btn-outline-primary btn-sm ms-3" id="btn-select-all">
+        <i class="fas fa-check-double me-1"></i> Select All
+    </button>
+</div>
 @error('permissions') <div class="alert alert-danger">{{ $message }}</div> @enderror
 
 @php
@@ -80,3 +85,14 @@
         </div>
     @endforeach
 </div>
+
+<script>
+document.getElementById('btn-select-all').addEventListener('click', function() {
+    var boxes = document.querySelectorAll('input[name="permissions[]"]');
+    var allChecked = Array.from(boxes).every(function(cb) { return cb.checked; });
+    boxes.forEach(function(cb) { cb.checked = !allChecked; });
+    this.innerHTML = allChecked
+        ? '<i class="fas fa-check-double me-1"></i> Select All'
+        : '<i class="fas fa-times me-1"></i> Deselect All';
+});
+</script>
