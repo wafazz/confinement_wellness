@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone')->nullable()->after('email');
             $table->string('ic_number')->nullable()->after('phone');
-            $table->enum('role', ['hq', 'leader', 'therapist'])->default('therapist')->after('password');
+            $table->enum('role', ['hq', 'staff', 'leader', 'therapist'])->default('therapist')->after('password');
             $table->foreignId('leader_id')->nullable()->constrained('users')->nullOnDelete()->after('role');
             $table->string('state')->nullable()->after('leader_id');
             $table->string('district')->nullable()->after('state');
