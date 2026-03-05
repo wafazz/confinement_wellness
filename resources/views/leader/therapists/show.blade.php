@@ -7,14 +7,9 @@
 <div class="card border-0 shadow-sm">
     <div class="card-header bg-white d-flex justify-content-between align-items-center">
         <h5 class="mb-0"><i class="fas fa-user me-2"></i>{{ $therapist->name }}</h5>
-        <div>
-            <a href="{{ route('leader.therapists.edit', $therapist) }}" class="btn btn-primary btn-sm">
-                <i class="fas fa-edit me-1"></i> Edit
-            </a>
-            <a href="{{ route('leader.therapists.index') }}" class="btn btn-outline-secondary btn-sm">
-                <i class="fas fa-arrow-left me-1"></i> Back
-            </a>
-        </div>
+        <a href="{{ route('leader.therapists.index') }}" class="btn btn-outline-secondary btn-sm">
+            <i class="fas fa-arrow-left me-1"></i> Back
+        </a>
     </div>
     <div class="card-body">
         @php $statusColor = match($therapist->status) { 'active' => 'success', 'inactive' => 'danger', 'pending' => 'warning' }; @endphp

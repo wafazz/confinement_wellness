@@ -218,9 +218,9 @@
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
     <!-- Sidebar -->
-    <aside class="sidebar @if(Auth::user()->role !== 'hq') sidebar-warm @endif" id="sidebar">
-        @if(Auth::user()->role === 'hq')
-            {{-- HQ: dark sidebar with brand --}}
+    <aside class="sidebar @if(!in_array(Auth::user()->role, ['hq', 'staff'])) sidebar-warm @endif" id="sidebar">
+        @if(in_array(Auth::user()->role, ['hq', 'staff']))
+            {{-- HQ / Staff: dark sidebar with brand --}}
             <div class="sidebar-brand">
                 <i class="fas fa-spa me-2"></i> C&W System
             </div>
@@ -230,18 +230,41 @@
                     <i class="fas fa-tachometer-alt"></i> Dashboard
                 </a>
                 <div class="sidebar-section">Management</div>
+                @can('access-leaders')
                 <a href="{{ route('hq.leaders.index') }}" class="nav-link {{ request()->routeIs('hq.leaders.*') ? 'active' : '' }}"><i class="fas fa-user-tie"></i> Leaders</a>
+                @endcan
+                @can('access-therapists')
                 <a href="{{ route('hq.therapists.index') }}" class="nav-link {{ request()->routeIs('hq.therapists.*') ? 'active' : '' }}"><i class="fas fa-users"></i> Therapists</a>
+                @endcan
+                @can('access-staff')
+                <a href="{{ route('hq.staff.index') }}" class="nav-link {{ request()->routeIs('hq.staff.*') ? 'active' : '' }}"><i class="fas fa-user-shield"></i> Staff</a>
+                @endcan
+                @can('access-jobs')
                 <a href="{{ route('hq.jobs.index') }}" class="nav-link {{ request()->routeIs('hq.jobs.*') ? 'active' : '' }}"><i class="fas fa-briefcase"></i> Jobs</a>
+                @endcan
+                @can('access-bookings')
                 <a href="{{ route('hq.bookings.index') }}" class="nav-link {{ request()->routeIs('hq.bookings.*') ? 'active' : '' }}"><i class="fas fa-calendar-check"></i> Bookings</a>
+                @endcan
                 <div class="sidebar-section">Finance</div>
+                @can('access-commissions')
                 <a href="{{ route('hq.commissions.index') }}" class="nav-link {{ request()->routeIs('hq.commissions.*') ? 'active' : '' }}"><i class="fas fa-money-bill-wave"></i> Commissions</a>
+                @endcan
+                @can('access-points')
                 <a href="{{ route('hq.points.index') }}" class="nav-link {{ request()->routeIs('hq.points.*') ? 'active' : '' }}"><i class="fas fa-star"></i> Points</a>
+                @endcan
+                @can('access-commission-rules')
                 <a href="{{ route('hq.commission-rules.index') }}" class="nav-link {{ request()->routeIs('hq.commission-rules.*') ? 'active' : '' }}"><i class="fas fa-cog"></i> Commission Rules</a>
+                @endcan
+                @can('access-reward-tiers')
                 <a href="{{ route('hq.reward-tiers.index') }}" class="nav-link {{ request()->routeIs('hq.reward-tiers.*') ? 'active' : '' }}"><i class="fas fa-trophy"></i> Reward Tiers</a>
+                @endcan
                 <div class="sidebar-section">Resources</div>
+                @can('access-sop-materials')
                 <a href="{{ route('hq.sop-materials.index') }}" class="nav-link {{ request()->routeIs('hq.sop-materials.*') ? 'active' : '' }}"><i class="fas fa-book"></i> SOP Materials</a>
+                @endcan
+                @can('access-reviews')
                 <a href="{{ route('hq.reviews.index') }}" class="nav-link {{ request()->routeIs('hq.reviews.*') ? 'active' : '' }}"><i class="fas fa-star"></i> Reviews</a>
+                @endcan
                 <a href="{{ route('notifications.index') }}" class="nav-link {{ request()->routeIs('notifications.*') ? 'active' : '' }}"><i class="fas fa-bell"></i> Notifications</a>
             </nav>
         @else

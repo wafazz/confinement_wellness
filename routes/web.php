@@ -11,6 +11,7 @@ use App\Http\Controllers\HQ\RewardTierController;
 use App\Http\Controllers\HQ\PointController as HQPointController;
 use App\Http\Controllers\HQ\SopMaterialController as HQSopMaterialController;
 use App\Http\Controllers\HQ\BookingController as HQBookingController;
+use App\Http\Controllers\HQ\StaffController;
 use App\Http\Controllers\Leader\DashboardController as LeaderDashboardController;
 use App\Http\Controllers\Leader\TherapistController;
 use App\Http\Controllers\Leader\ServiceJobController as LeaderServiceJobController;
@@ -72,53 +73,104 @@ Route::middleware('auth.client')->prefix('client')->name('client.')->group(funct
 Route::get('/dashboard', function () {
     $user = auth()->user();
     return match ($user->role) {
-        'hq' => redirect()->route('hq.dashboard'),
+        'hq', 'staff' => redirect()->route('hq.dashboard'),
         'leader' => redirect()->route('leader.dashboard'),
         'therapist' => redirect()->route('therapist.dashboard'),
         default => redirect()->route('login'),
     };
 })->middleware(['auth'])->name('dashboard');
 
-// HQ Routes
-Route::middleware(['auth', 'role:hq'])->prefix('hq')->name('hq.')->group(function () {
+// HQ + Staff Routes
+Route::middleware(['auth', 'role:hq|staff'])->prefix('hq')->name('hq.')->group(function () {
     Route::get('/dashboard', [HQDashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/leaders', LeaderController::class);
-    Route::patch('/leaders/{leader}/toggle-status', [LeaderController::class, 'toggleStatus'])->name('leaders.toggle-status');
-    Route::get('/leaders/{leader}/team', [LeaderController::class, 'team'])->name('leaders.team');
-    Route::get('/therapists', [HQTherapistController::class, 'index'])->name('therapists.index');
-    Route::get('/therapists/{therapist}', [HQTherapistController::class, 'show'])->name('therapists.show');
-    Route::patch('/therapists/{therapist}/toggle-status', [HQTherapistController::class, 'toggleStatus'])->name('therapists.toggle-status');
-    Route::resource('/jobs', HQServiceJobController::class)->except(['destroy']);
-    Route::patch('/jobs/{job}/cancel', [HQServiceJobController::class, 'cancel'])->name('jobs.cancel');
-    Route::resource('/commission-rules', CommissionRuleController::class)->except(['show', 'destroy']);
-    Route::patch('/commission-rules/{commission_rule}/toggle-status', [CommissionRuleController::class, 'toggleStatus'])->name('commission-rules.toggle-status');
-    Route::get('/commissions', [HQCommissionController::class, 'index'])->name('commissions.index');
-    Route::patch('/commissions/{commission}/approve', [HQCommissionController::class, 'approve'])->name('commissions.approve');
-    Route::patch('/commissions/{commission}/mark-paid', [HQCommissionController::class, 'markPaid'])->name('commissions.mark-paid');
-    Route::post('/commissions/bulk-approve', [HQCommissionController::class, 'bulkApprove'])->name('commissions.bulk-approve');
-    Route::post('/commissions/bulk-paid', [HQCommissionController::class, 'bulkPaid'])->name('commissions.bulk-paid');
-    Route::get('/commissions/download-pdf', [HQCommissionController::class, 'downloadPdf'])->name('commissions.download-pdf');
-    Route::resource('/reward-tiers', RewardTierController::class)->except(['show', 'destroy']);
-    Route::patch('/reward-tiers/{reward_tier}/toggle-status', [RewardTierController::class, 'toggleStatus'])->name('reward-tiers.toggle-status');
-    Route::get('/points', [HQPointController::class, 'index'])->name('points.index');
-    Route::resource('/sop-materials', HQSopMaterialController::class)->except(['show']);
+
+    // Leaders
+    Route::middleware('permission:access-leaders')->group(function () {
+        Route::resource('/leaders', LeaderController::class);
+        Route::patch('/leaders/{leader}/toggle-status', [LeaderController::class, 'toggleStatus'])->name('leaders.toggle-status');
+        Route::get('/leaders/{leader}/team', [LeaderController::class, 'team'])->name('leaders.team');
+    });
+
+    // Therapists
+    Route::middleware('permission:access-therapists')->group(function () {
+        Route::get('/therapists', [HQTherapistController::class, 'index'])->name('therapists.index');
+        Route::get('/therapists/create', [HQTherapistController::class, 'create'])->name('therapists.create');
+        Route::post('/therapists', [HQTherapistController::class, 'store'])->name('therapists.store');
+        Route::get('/therapists/{therapist}', [HQTherapistController::class, 'show'])->name('therapists.show');
+        Route::patch('/therapists/{therapist}/toggle-status', [HQTherapistController::class, 'toggleStatus'])->name('therapists.toggle-status');
+    });
+
+    // Jobs
+    Route::middleware('permission:access-jobs')->group(function () {
+        Route::resource('/jobs', HQServiceJobController::class)->except(['destroy']);
+        Route::patch('/jobs/{job}/cancel', [HQServiceJobController::class, 'cancel'])->name('jobs.cancel');
+    });
+
+    // Commission Rules
+    Route::middleware('permission:access-commission-rules')->group(function () {
+        Route::resource('/commission-rules', CommissionRuleController::class)->except(['show', 'destroy']);
+        Route::patch('/commission-rules/{commission_rule}/toggle-status', [CommissionRuleController::class, 'toggleStatus'])->name('commission-rules.toggle-status');
+    });
+
+    // Commissions
+    Route::middleware('permission:access-commissions')->group(function () {
+        Route::get('/commissions', [HQCommissionController::class, 'index'])->name('commissions.index');
+        Route::patch('/commissions/{commission}/approve', [HQCommissionController::class, 'approve'])->name('commissions.approve');
+        Route::patch('/commissions/{commission}/mark-paid', [HQCommissionController::class, 'markPaid'])->name('commissions.mark-paid');
+        Route::post('/commissions/bulk-approve', [HQCommissionController::class, 'bulkApprove'])->name('commissions.bulk-approve');
+        Route::post('/commissions/bulk-paid', [HQCommissionController::class, 'bulkPaid'])->name('commissions.bulk-paid');
+        Route::get('/commissions/download-pdf', [HQCommissionController::class, 'downloadPdf'])->name('commissions.download-pdf');
+    });
+
+    // Reward Tiers
+    Route::middleware('permission:access-reward-tiers')->group(function () {
+        Route::resource('/reward-tiers', RewardTierController::class)->except(['show', 'destroy']);
+        Route::patch('/reward-tiers/{reward_tier}/toggle-status', [RewardTierController::class, 'toggleStatus'])->name('reward-tiers.toggle-status');
+    });
+
+    // Points
+    Route::middleware('permission:access-points')->group(function () {
+        Route::get('/points', [HQPointController::class, 'index'])->name('points.index');
+    });
+
+    // SOP Materials
+    Route::middleware('permission:access-sop-materials')->group(function () {
+        Route::resource('/sop-materials', HQSopMaterialController::class)->except(['show']);
+    });
+
     // Reviews
-    Route::get('/reviews', [HQReviewController::class, 'index'])->name('reviews.index');
-    Route::patch('/reviews/{review}/approve', [HQReviewController::class, 'approve'])->name('reviews.approve');
-    Route::patch('/reviews/{review}/reject', [HQReviewController::class, 'reject'])->name('reviews.reject');
+    Route::middleware('permission:access-reviews')->group(function () {
+        Route::get('/reviews', [HQReviewController::class, 'index'])->name('reviews.index');
+        Route::patch('/reviews/{review}/approve', [HQReviewController::class, 'approve'])->name('reviews.approve');
+        Route::patch('/reviews/{review}/reject', [HQReviewController::class, 'reject'])->name('reviews.reject');
+    });
+
     // Bookings
-    Route::get('/bookings', [HQBookingController::class, 'index'])->name('bookings.index');
-    Route::get('/bookings/{booking}', [HQBookingController::class, 'show'])->name('bookings.show');
-    Route::patch('/bookings/{booking}/approve', [HQBookingController::class, 'approve'])->name('bookings.approve');
-    Route::patch('/bookings/{booking}/reject', [HQBookingController::class, 'reject'])->name('bookings.reject');
-    Route::get('/bookings/{booking}/convert', [HQBookingController::class, 'convertForm'])->name('bookings.convert-form');
-    Route::post('/bookings/{booking}/convert', [HQBookingController::class, 'convert'])->name('bookings.convert');
+    Route::middleware('permission:access-bookings')->group(function () {
+        Route::get('/bookings', [HQBookingController::class, 'index'])->name('bookings.index');
+        Route::get('/bookings/{booking}', [HQBookingController::class, 'show'])->name('bookings.show');
+        Route::patch('/bookings/{booking}/approve', [HQBookingController::class, 'approve'])->name('bookings.approve');
+        Route::patch('/bookings/{booking}/reject', [HQBookingController::class, 'reject'])->name('bookings.reject');
+        Route::get('/bookings/{booking}/convert', [HQBookingController::class, 'convertForm'])->name('bookings.convert-form');
+        Route::post('/bookings/{booking}/convert', [HQBookingController::class, 'convert'])->name('bookings.convert');
+    });
+
+    // Staff Management
+    Route::middleware('permission:access-staff')->group(function () {
+        Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
+        Route::get('/staff/create', [StaffController::class, 'create'])->name('staff.create');
+        Route::post('/staff', [StaffController::class, 'store'])->name('staff.store');
+        Route::get('/staff/{staff}', [StaffController::class, 'show'])->name('staff.show');
+        Route::get('/staff/{staff}/edit', [StaffController::class, 'edit'])->name('staff.edit');
+        Route::put('/staff/{staff}', [StaffController::class, 'update'])->name('staff.update');
+        Route::patch('/staff/{staff}/toggle-status', [StaffController::class, 'toggleStatus'])->name('staff.toggle-status');
+    });
 });
 
 // Leader Routes
 Route::middleware(['auth', 'role:leader'])->prefix('leader')->name('leader.')->group(function () {
     Route::get('/dashboard', [LeaderDashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/therapists', TherapistController::class);
+    Route::resource('/therapists', TherapistController::class)->only(['index', 'show']);
     Route::patch('/therapists/{therapist}/toggle-status', [TherapistController::class, 'toggleStatus'])->name('therapists.toggle-status');
     Route::resource('/jobs', LeaderServiceJobController::class)->except(['destroy']);
     Route::patch('/jobs/{job}/cancel', [LeaderServiceJobController::class, 'cancel'])->name('jobs.cancel');

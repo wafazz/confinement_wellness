@@ -63,6 +63,38 @@ class TherapistController extends Controller
         return view('hq.therapists.show', compact('therapist'));
     }
 
+    public function create()
+    {
+        $leaders = User::where('role', 'leader')->where('status', 'active')->orderBy('name')->get();
+        return view('hq.therapists.create', compact('leaders'));
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|string|max:20',
+            'ic_number' => 'required|string|max:20|unique:users,ic_number',
+            'password' => 'required|string|min:8|confirmed',
+            'leader_id' => 'required|exists:users,id',
+            'state' => 'required|string|max:100',
+            'district' => 'required|string|max:100',
+            'kkm_cert_no' => 'nullable|string|max:50',
+            'bank_name' => 'nullable|string|max:100',
+            'bank_account' => 'nullable|string|max:50',
+        ]);
+
+        $validated['password'] = bcrypt($validated['password']);
+        $validated['role'] = 'therapist';
+        $validated['status'] = 'active';
+
+        $therapist = User::create($validated);
+        $therapist->assignRole('therapist');
+
+        return redirect()->route('hq.therapists.index')->with('success', 'Therapist created successfully.');
+    }
+
     public function toggleStatus(User $therapist)
     {
         $therapist->status = $therapist->status === 'active' ? 'inactive' : 'active';

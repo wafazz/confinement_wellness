@@ -265,6 +265,7 @@ Visit `http://localhost:8000`
 | Role | Email | Password |
 |------|-------|----------|
 | HQ Admin | admin@confinement.com | password |
+| Staff | staff@confinement.com | password |
 | Leader | leader@confinement.com | password |
 | Therapist 1 | therapist1@confinement.com | password |
 | Therapist 2 | therapist2@confinement.com | password |

@@ -30,6 +30,26 @@ class DatabaseSeeder extends Seeder
         ]);
         $hq->assignRole('hq');
 
+        // Staff (admin assistant with limited permissions)
+        $staff = User::create([
+            'name' => 'Sarah Staff',
+            'email' => 'staff@confinement.com',
+            'phone' => '0121112233',
+            'ic_number' => '910505010010',
+            'password' => bcrypt('password'),
+            'role' => 'staff',
+            'state' => 'Selangor',
+            'district' => 'Petaling Jaya',
+            'status' => 'active',
+        ]);
+        $staff->assignRole('staff');
+        $staff->syncPermissions([
+            'access-therapists',
+            'access-jobs',
+            'access-bookings',
+            'access-commissions',
+        ]);
+
         // Leader
         $leader = User::create([
             'name' => 'Siti Aminah',
